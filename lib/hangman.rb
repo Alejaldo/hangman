@@ -1,6 +1,16 @@
-arr = File.open("5desk.txt").readlines.each do |line|
-  clean_line = line.to_s.gsub(/[^a-zA-Z]/,"")
-  clean_line.downcase! if clean_line.size.between?(5,12)
-end
+require "./lib/load.rb"
 
-puts arr.sample
+puts "Hello, let's play."
+puts "Hidden word has #{@hidden_word_arr.size} letters"
+
+6.times do
+  puts "Enter a letter: "
+  user_letter = gets.chomp.to_s.downcase!
+  
+    if @hidden_word_arr.include?(user_letter)
+      puts "#{user_letter} is right"
+    else 
+      puts "#{user_letter} is wrong"
+    end
+
+end
